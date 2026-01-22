@@ -1,5 +1,6 @@
 package com.viniciusvr.edespensa.infrastructure.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
@@ -7,7 +8,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 import java.util.Arrays;
-import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Configuração de CORS para permitir requisições do frontend.
@@ -15,11 +16,18 @@ import java.util.List;
 @Configuration
 public class CorsConfig {
 
+    @Value("${cors.allowed-origins:http://localhost:5173,http://localhost:3000}")
+    private String allowedOrigins;
+
     @Bean
     public CorsFilter corsFilter() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         corsConfiguration.setAllowCredentials(true);
-        corsConfiguration.setAllowedOrigins(List.of("http://localhost:5173", "http://localhost:3000"));
+        corsConfiguration.setAllowedOrigins(
+                Arrays.stream(allowedOrigins.split(","))
+                        .map(String::trim)
+                        .collect(Collectors.toList())
+        );
         corsConfiguration.setAllowedHeaders(Arrays.asList(
                 "Origin",
                 "Access-Control-Allow-Origin",
