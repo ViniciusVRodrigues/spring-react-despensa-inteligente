@@ -1,7 +1,7 @@
-package com.viniciusvr.edespensa.domain.usecase;
+package com.viniciusvr.edespensa.application.usecase;
 
+import com.viniciusvr.edespensa.application.gateway.ItemListaComprasGateway;
 import com.viniciusvr.edespensa.domain.entity.ItemListaCompras;
-import com.viniciusvr.edespensa.domain.gateway.ItemListaComprasGateway;
 import org.springframework.stereotype.Service;
 
 /**

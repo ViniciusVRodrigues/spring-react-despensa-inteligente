@@ -1,10 +1,10 @@
-package com.viniciusvr.edespensa.domain.usecase;
+package com.viniciusvr.edespensa.application.usecase;
 
+import com.viniciusvr.edespensa.application.gateway.ItemListaComprasGateway;
+import com.viniciusvr.edespensa.application.gateway.ProdutoGateway;
 import com.viniciusvr.edespensa.domain.entity.CategoriaProduto;
 import com.viniciusvr.edespensa.domain.entity.ItemListaCompras;
 import com.viniciusvr.edespensa.domain.entity.Produto;
-import com.viniciusvr.edespensa.domain.gateway.ItemListaComprasGateway;
-import com.viniciusvr.edespensa.domain.gateway.ProdutoGateway;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

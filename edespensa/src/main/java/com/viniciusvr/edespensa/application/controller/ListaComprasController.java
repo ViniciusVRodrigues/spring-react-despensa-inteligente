@@ -2,8 +2,8 @@ package com.viniciusvr.edespensa.application.controller;
 
 import com.viniciusvr.edespensa.application.dto.ItemListaComprasRequest;
 import com.viniciusvr.edespensa.application.dto.ItemListaComprasResponse;
+import com.viniciusvr.edespensa.application.usecase.*;
 import com.viniciusvr.edespensa.domain.entity.ItemListaCompras;
-import com.viniciusvr.edespensa.domain.usecase.*;
 import com.viniciusvr.edespensa.infrastructure.mapper.EntityMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;

@@ -1,11 +1,13 @@
-package com.viniciusvr.edespensa.domain.usecase;
+package com.viniciusvr.edespensa.application.usecase;
 
+import com.viniciusvr.edespensa.application.gateway.ProdutoGateway;
 import com.viniciusvr.edespensa.domain.entity.Produto;
 import com.viniciusvr.edespensa.domain.exception.ProdutoNaoEncontradoException;
 import com.viniciusvr.edespensa.domain.exception.RegraNegocioException;
-import com.viniciusvr.edespensa.domain.gateway.ProdutoGateway;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -45,7 +47,9 @@ public class ConsumirProdutoUseCase {
      * @throws RegraNegocioException se algum produto não tiver quantidade suficiente
      */
     public List<Produto> executarEmLote(Map<String, Integer> consumos) {
-        // Primeiro, valida todos os produtos
+        // Busca e valida todos os produtos, armazenando-os para uso posterior
+        Map<String, Produto> produtosValidados = new HashMap<>();
+        
         for (Map.Entry<String, Integer> entry : consumos.entrySet()) {
             String id = entry.getKey();
             Integer quantidade = entry.getValue();
@@ -59,15 +63,18 @@ public class ConsumirProdutoUseCase {
                         "Disponível: " + produto.getQuantidade() + ", Solicitado: " + quantidade
                 );
             }
+            
+            produtosValidados.put(id, produto);
         }
 
-        // Se todos passaram na validação, executa o consumo
-        return consumos.entrySet().stream()
-                .map(entry -> {
-                    Produto produto = produtoGateway.buscarPorId(entry.getKey()).get();
-                    produto.consumir(entry.getValue());
-                    return produtoGateway.salvar(produto);
-                })
-                .toList();
+        // Se todos passaram na validação, executa o consumo usando os produtos já carregados
+        List<Produto> produtosAtualizados = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : consumos.entrySet()) {
+            Produto produto = produtosValidados.get(entry.getKey());
+            produto.consumir(entry.getValue());
+            produtosAtualizados.add(produtoGateway.salvar(produto));
+        }
+        
+        return produtosAtualizados;
     }
 }

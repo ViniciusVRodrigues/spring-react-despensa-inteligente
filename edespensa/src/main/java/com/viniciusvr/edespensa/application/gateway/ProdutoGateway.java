@@ -1,4 +1,4 @@
-package com.viniciusvr.edespensa.domain.gateway;
+package com.viniciusvr.edespensa.application.gateway;
 
 import com.viniciusvr.edespensa.domain.entity.CategoriaProduto;
 import com.viniciusvr.edespensa.domain.entity.Produto;
@@ -8,7 +8,7 @@ import java.util.Optional;
 
 /**
  * Interface Gateway para operações de persistência de Produto.
- * Seguindo Clean Architecture, esta interface pertence ao domínio.
+ * Seguindo Clean Architecture, esta interface pertence à camada de aplicação (port).
  */
 public interface ProdutoGateway {
 
