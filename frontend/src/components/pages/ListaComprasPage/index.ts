@@ -1,0 +1,1 @@
+export { ListaComprasPage } from './ListaComprasPage';
