@@ -1,8 +1,8 @@
 import React from 'react';
-import { FaHome, FaShoppingCart } from 'react-icons/fa';
+import { FaShoppingCart, FaTachometerAlt, FaBox } from 'react-icons/fa';
 import styles from './Header.module.css';
 
-type Tab = 'despensa' | 'lista-compras';
+type Tab = 'dashboard' | 'despensa' | 'lista-compras';
 
 interface HeaderProps {
   activeTab: Tab;
@@ -27,10 +27,17 @@ export const Header: React.FC<HeaderProps> = ({
         
         <nav className={styles.nav}>
           <button
+            className={`${styles.navButton} ${activeTab === 'dashboard' ? styles.active : ''}`}
+            onClick={() => onTabChange('dashboard')}
+          >
+            <FaTachometerAlt />
+            <span>Dashboard</span>
+          </button>
+          <button
             className={`${styles.navButton} ${activeTab === 'despensa' ? styles.active : ''}`}
             onClick={() => onTabChange('despensa')}
           >
-            <FaHome />
+            <FaBox />
             <span>Despensa</span>
           </button>
           <button
