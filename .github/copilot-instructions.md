@@ -29,37 +29,8 @@ O sistema deve ser 100% em português brasileiro, tanto no frontend quanto no ba
 ## Project Structure
 
 ### Frontend Structure (Atomic Design)
-```
-src/
-├── components/
-│   ├── atoms/         # Componentes básicos (Button, Input, Label)
-│   ├── molecules/     # Combinações de atoms (FormField, ProductCard)
-│   ├── organisms/     # Seções complexas (ProductList, ShoppingListForm)
-│   ├── templates/     # Layouts de página
-│   └── pages/         # Páginas completas
-├── services/          # API calls e integrações
-├── hooks/             # Custom React hooks
-├── types/             # TypeScript interfaces e types
-├── utils/             # Funções auxiliares
-└── contexts/          # Context providers
-```
 
 ### Backend Structure (Clean Architecture)
-```
-src/main/java/com/smartpantry/
-├── domain/
-│   ├── entity/        # Entidades de domínio
-│   ├── usecase/       # Casos de uso (regras de negócio)
-│   └── gateway/       # Interfaces de repositórios
-├── application/
-│   ├── controller/    # REST Controllers
-│   └── dto/           # Data Transfer Objects
-├── infrastructure/
-│   ├── persistence/   # Implementação JPA
-│   ├── config/        # Configurações Spring
-│   └── mapper/        # Entity <-> DTO mappers
-└── SmartPantryApplication.java
-```
 
 ## Coding Guidelines
 
