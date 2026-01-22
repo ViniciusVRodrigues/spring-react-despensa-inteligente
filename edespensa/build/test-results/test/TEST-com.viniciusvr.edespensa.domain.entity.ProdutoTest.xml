@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.viniciusvr.edespensa.domain.entity.ProdutoTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2026-01-22T17:16:12.671Z" hostname="runnervmmtnos" time="0.01">
+  <properties/>
+  <testcase name="deveReporProdutoComSucesso()" classname="com.viniciusvr.edespensa.domain.entity.ProdutoTest" time="0.001"/>
+  <testcase name="deveLancarExcecaoQuandoQuantidadeConsumoMaiorQueDisponivel()" classname="com.viniciusvr.edespensa.domain.entity.ProdutoTest" time="0.001"/>
+  <testcase name="deveRetornarFalseQuandoProdutoSemDataValidade()" classname="com.viniciusvr.edespensa.domain.entity.ProdutoTest" time="0.001"/>
+  <testcase name="deveCriarProdutoComSucesso()" classname="com.viniciusvr.edespensa.domain.entity.ProdutoTest" time="0.001"/>
+  <testcase name="deveLancarExcecaoQuandoQuantidadeConsumoZeroOuNegativa()" classname="com.viniciusvr.edespensa.domain.entity.ProdutoTest" time="0.001"/>
+  <testcase name="deveRetornarFalseQuandoEstoqueNaoEBaixo()" classname="com.viniciusvr.edespensa.domain.entity.ProdutoTest" time="0.001"/>
+  <testcase name="deveDescartarProdutoComSucesso()" classname="com.viniciusvr.edespensa.domain.entity.ProdutoTest" time="0.0"/>
+  <testcase name="deveConsumirProdutoQuandoQuantidadeDisponivel()" classname="com.viniciusvr.edespensa.domain.entity.ProdutoTest" time="0.0"/>
+  <testcase name="deveRetornarTrueQuandoProdutoExpirado()" classname="com.viniciusvr.edespensa.domain.entity.ProdutoTest" time="0.001"/>
+  <testcase name="deveLancarExcecaoQuandoQuantidadeReposicaoZeroOuNegativa()" classname="com.viniciusvr.edespensa.domain.entity.ProdutoTest" time="0.001"/>
+  <testcase name="deveRetornarTrueQuandoEstoqueBaixo()" classname="com.viniciusvr.edespensa.domain.entity.ProdutoTest" time="0.0"/>
+  <testcase name="deveRetornarFalseQuandoProdutoNaoExpirado()" classname="com.viniciusvr.edespensa.domain.entity.ProdutoTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
