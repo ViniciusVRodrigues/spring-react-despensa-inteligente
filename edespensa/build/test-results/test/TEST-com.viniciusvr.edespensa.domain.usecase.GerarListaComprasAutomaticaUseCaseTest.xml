@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.viniciusvr.edespensa.domain.usecase.GerarListaComprasAutomaticaUseCaseTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-01-22T17:16:12.682Z" hostname="runnervmmtnos" time="0.068">
-  <properties/>
-  <testcase name="deveCalcularQuantidadeSugeridaCorretamente()" classname="com.viniciusvr.edespensa.domain.usecase.GerarListaComprasAutomaticaUseCaseTest" time="0.063"/>
-  <testcase name="deveGerarListaParaProdutosComEstoqueBaixo()" classname="com.viniciusvr.edespensa.domain.usecase.GerarListaComprasAutomaticaUseCaseTest" time="0.003"/>
-  <testcase name="deveRetornarListaVaziaQuandoNaoHouverProdutos()" classname="com.viniciusvr.edespensa.domain.usecase.GerarListaComprasAutomaticaUseCaseTest" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
