@@ -70,17 +70,17 @@ class GerarListaComprasAutomaticaUseCaseTest {
     }
 
     @Test
-    void deveCalcularQuantidadeSugeridaCorretamente() {
-        // Média = 10, Limiar = 2
-        // Produto com quantidade 1 deve ter quantidade sugerida = 10 - 1 = 9
+    void naoDeveAdicionarItensQuandoEstoqueAcimaDoLimiar() {
+        // Com apenas 1 produto de quantidade 1:
+        // - Média = 1
+        // - Limiar = 20% de 1 = 0.2, arredondado para cima = 1
+        // - Produto quantidade (1) NÃO é menor que limiar (1)
+        // - Portanto, nenhum item deve ser adicionado à lista
         Produto produto = new Produto("Sal", 1, null, CategoriaProduto.OUTROS);
         List<Produto> produtos = List.of(produto);
 
         when(produtoGateway.listarTodosAtivos()).thenReturn(produtos);
-        when(itemListaComprasGateway.salvarTodos(anyList())).thenAnswer(invocation -> invocation.getArgument(0));
 
-        // Com apenas 1 produto, média = 1, limiar = 0.2 (arredondado = 1)
-        // Mas quantidade do produto (1) >= limiar (1), então nenhum produto deve ser adicionado
         List<ItemListaCompras> resultado = gerarListaComprasAutomaticaUseCase.executar();
 
         assertTrue(resultado.isEmpty());
