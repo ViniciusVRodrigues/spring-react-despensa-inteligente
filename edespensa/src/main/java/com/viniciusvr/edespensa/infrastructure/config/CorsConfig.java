@@ -8,7 +8,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 import java.util.Arrays;
-import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Configuração de CORS para permitir requisições do frontend.
@@ -23,7 +23,11 @@ public class CorsConfig {
     public CorsFilter corsFilter() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         corsConfiguration.setAllowCredentials(true);
-        corsConfiguration.setAllowedOrigins(Arrays.asList(allowedOrigins.split(",")));
+        corsConfiguration.setAllowedOrigins(
+                Arrays.stream(allowedOrigins.split(","))
+                        .map(String::trim)
+                        .collect(Collectors.toList())
+        );
         corsConfiguration.setAllowedHeaders(Arrays.asList(
                 "Origin",
                 "Access-Control-Allow-Origin",
