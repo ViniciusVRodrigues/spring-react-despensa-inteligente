@@ -1,6 +1,7 @@
 package com.viniciusvr.edespensa.infrastructure.persistence.repository;
 
 import com.viniciusvr.edespensa.domain.entity.ShoppingListItem;
+import com.viniciusvr.edespensa.domain.exception.EntityNotFoundException;
 import com.viniciusvr.edespensa.domain.repository.ShoppingListItemRepository;
 import com.viniciusvr.edespensa.infrastructure.persistence.entity.ProductJpaEntity;
 import com.viniciusvr.edespensa.infrastructure.persistence.entity.ShoppingListItemJpaEntity;
@@ -42,7 +43,7 @@ public class ShoppingListItemRepositoryImpl implements ShoppingListItemRepositor
             // Ensure the product is managed
             if (item.getProduct() != null && item.getProduct().getId() != null) {
                 ProductJpaEntity productJpa = productJpaRepository.findById(item.getProduct().getId())
-                        .orElseThrow(() -> new RuntimeException("Product not found"));
+                        .orElseThrow(() -> new EntityNotFoundException("Product", item.getProduct().getId()));
                 jpaEntity.setProduct(productJpa);
             }
         }

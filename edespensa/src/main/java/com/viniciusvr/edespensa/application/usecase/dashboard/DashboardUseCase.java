@@ -15,16 +15,20 @@ import java.util.List;
  */
 public class DashboardUseCase {
 
-    private static final int EXPIRING_SOON_DAYS = 7;
-    private static final double LOW_STOCK_THRESHOLD = 2.0;
+    private final int expiringSoonDays;
+    private final double lowStockThreshold;
 
     private final PantryItemRepository pantryItemRepository;
     private final ShoppingListItemRepository shoppingListRepository;
 
     public DashboardUseCase(PantryItemRepository pantryItemRepository, 
-                           ShoppingListItemRepository shoppingListRepository) {
+                           ShoppingListItemRepository shoppingListRepository,
+                           int expiringSoonDays,
+                           double lowStockThreshold) {
         this.pantryItemRepository = pantryItemRepository;
         this.shoppingListRepository = shoppingListRepository;
+        this.expiringSoonDays = expiringSoonDays;
+        this.lowStockThreshold = lowStockThreshold;
     }
 
     /**
@@ -40,12 +44,12 @@ public class DashboardUseCase {
         for (PantryItem item : allItems) {
             if (item.isExpired()) {
                 expired.add(createAlertItem(item, "EXPIRED", "Product has expired"));
-            } else if (item.isExpiringSoon(EXPIRING_SOON_DAYS)) {
+            } else if (item.isExpiringSoon(expiringSoonDays)) {
                 expiringSoon.add(createAlertItem(item, "EXPIRING_SOON", 
                     "Expires in " + calculateDaysUntilExpiration(item) + " days"));
             }
             
-            if (item.isLowStock(LOW_STOCK_THRESHOLD)) {
+            if (item.isLowStock(lowStockThreshold)) {
                 lowStock.add(createAlertItem(item, "LOW_STOCK", "Low stock - only " + item.getQuantity() + " left"));
             }
         }

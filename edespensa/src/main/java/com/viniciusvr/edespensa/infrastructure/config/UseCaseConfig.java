@@ -49,7 +49,13 @@ public class UseCaseConfig {
 
     @Bean
     public DashboardUseCase dashboardUseCase(PantryItemRepository pantryItemRepository,
-                                             ShoppingListItemRepository shoppingListItemRepository) {
-        return new DashboardUseCase(pantryItemRepository, shoppingListItemRepository);
+                                             ShoppingListItemRepository shoppingListItemRepository,
+                                             PantryConfig pantryConfig) {
+        return new DashboardUseCase(
+                pantryItemRepository, 
+                shoppingListItemRepository,
+                pantryConfig.getExpiringSoonDays(),
+                pantryConfig.getLowStockThreshold()
+        );
     }
 }

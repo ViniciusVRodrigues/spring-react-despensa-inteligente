@@ -1,6 +1,7 @@
 package com.viniciusvr.edespensa.infrastructure.persistence.repository;
 
 import com.viniciusvr.edespensa.domain.entity.PantryItem;
+import com.viniciusvr.edespensa.domain.exception.EntityNotFoundException;
 import com.viniciusvr.edespensa.domain.repository.PantryItemRepository;
 import com.viniciusvr.edespensa.infrastructure.persistence.entity.PantryItemJpaEntity;
 import com.viniciusvr.edespensa.infrastructure.persistence.entity.ProductJpaEntity;
@@ -43,7 +44,7 @@ public class PantryItemRepositoryImpl implements PantryItemRepository {
             // Ensure the product is managed
             if (pantryItem.getProduct() != null && pantryItem.getProduct().getId() != null) {
                 ProductJpaEntity productJpa = productJpaRepository.findById(pantryItem.getProduct().getId())
-                        .orElseThrow(() -> new RuntimeException("Product not found"));
+                        .orElseThrow(() -> new EntityNotFoundException("Product", pantryItem.getProduct().getId()));
                 jpaEntity.setProduct(productJpa);
             }
         }
