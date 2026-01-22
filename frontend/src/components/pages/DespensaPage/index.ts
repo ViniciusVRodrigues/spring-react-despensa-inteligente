@@ -1,1 +1,0 @@
-export { DespensaPage } from './DespensaPage';
