@@ -1,8 +1,8 @@
 package com.viniciusvr.edespensa.infrastructure.persistence;
 
+import com.viniciusvr.edespensa.application.gateway.ProdutoGateway;
 import com.viniciusvr.edespensa.domain.entity.CategoriaProduto;
 import com.viniciusvr.edespensa.domain.entity.Produto;
-import com.viniciusvr.edespensa.domain.gateway.ProdutoGateway;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;

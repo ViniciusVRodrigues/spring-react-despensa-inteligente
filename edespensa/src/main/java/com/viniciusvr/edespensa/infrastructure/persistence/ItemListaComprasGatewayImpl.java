@@ -1,7 +1,7 @@
 package com.viniciusvr.edespensa.infrastructure.persistence;
 
+import com.viniciusvr.edespensa.application.gateway.ItemListaComprasGateway;
 import com.viniciusvr.edespensa.domain.entity.ItemListaCompras;
-import com.viniciusvr.edespensa.domain.gateway.ItemListaComprasGateway;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 

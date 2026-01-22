@@ -1,4 +1,4 @@
-package com.viniciusvr.edespensa.domain.gateway;
+package com.viniciusvr.edespensa.application.gateway;
 
 import com.viniciusvr.edespensa.domain.entity.ItemListaCompras;
 
@@ -7,7 +7,7 @@ import java.util.Optional;
 
 /**
  * Interface Gateway para operações de persistência de ItemListaCompras.
- * Seguindo Clean Architecture, esta interface pertence ao domínio.
+ * Seguindo Clean Architecture, esta interface pertence à camada de aplicação (port).
  */
 public interface ItemListaComprasGateway {
 

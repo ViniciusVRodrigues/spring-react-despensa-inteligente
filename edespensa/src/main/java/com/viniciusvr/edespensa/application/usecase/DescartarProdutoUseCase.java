@@ -1,8 +1,8 @@
-package com.viniciusvr.edespensa.domain.usecase;
+package com.viniciusvr.edespensa.application.usecase;
 
+import com.viniciusvr.edespensa.application.gateway.ProdutoGateway;
 import com.viniciusvr.edespensa.domain.entity.Produto;
 import com.viniciusvr.edespensa.domain.exception.ProdutoNaoEncontradoException;
-import com.viniciusvr.edespensa.domain.gateway.ProdutoGateway;
 import org.springframework.stereotype.Service;
 
 /**
