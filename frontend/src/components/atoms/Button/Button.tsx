@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaSpinner } from 'react-icons/fa';
 import styles from './Button.module.css';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'success';
@@ -43,7 +44,7 @@ export const Button: React.FC<ButtonProps> = ({
       {...props}
     >
       {loading ? (
-        <span className={styles.spinner}>⏳</span>
+        <FaSpinner className={styles.spinner} aria-label="Carregando" />
       ) : (
         children
       )}

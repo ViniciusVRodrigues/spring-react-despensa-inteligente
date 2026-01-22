@@ -29,7 +29,7 @@ describe('Button', () => {
   it('deve mostrar o spinner quando loading=true', () => {
     render(<Button loading>Carregando</Button>);
     
-    expect(screen.getByText('⏳')).toBeInTheDocument();
+    expect(screen.getByLabelText('Carregando')).toBeInTheDocument();
   });
 
   it('deve renderizar como botão HTML válido', () => {
