@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.empty {
+  text-align: center;
+  padding: 3rem;
+  background: #f9fafb;
+  border-radius: 12px;
+  border: 2px dashed #e5e7eb;
+}
+
+.empty p {
+  color: #6b7280;
+  margin: 0;
+}
+
+.emptyHint {
+  font-size: 0.875rem;
+  margin-top: 0.5rem !important;
+}
