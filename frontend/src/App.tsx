@@ -1,11 +1,10 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { MainLayout } from './components/templates';
 import { Dashboard, Products, Pantry, ShoppingList } from './pages';
 import './App.css';
 
 function App() {
   return (
-    <Router>
       <MainLayout>
         <Routes>
           <Route path="/" element={<Dashboard />} />
@@ -14,7 +13,6 @@ function App() {
           <Route path="/shopping-list" element={<ShoppingList />} />
         </Routes>
       </MainLayout>
-    </Router>
   );
 }
 

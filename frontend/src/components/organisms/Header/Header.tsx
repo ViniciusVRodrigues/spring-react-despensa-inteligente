@@ -5,6 +5,8 @@ import './Header.css';
 export const Header: React.FC = () => {
   const location = useLocation();
 
+  const resolvedPath = 'edespensa';
+
   const navItems = [
     { path: '/', label: 'Dashboard' },
     { path: '/products', label: 'Produtos' },
@@ -12,10 +14,13 @@ export const Header: React.FC = () => {
     { path: '/shopping-list', label: 'Lista de Compras' },
   ];
 
+  
+
+
   return (
     <header className="header">
       <div className="header-container">
-        <Link to="/" className="header-logo">
+        <Link to={`/${resolvedPath}/`} className="header-logo">
           <span className="logo-icon">🏠</span>
           <span className="logo-text">Despensa Inteligente</span>
         </Link>
@@ -23,8 +28,8 @@ export const Header: React.FC = () => {
           {navItems.map((item) => (
             <Link
               key={item.path}
-              to={item.path}
-              className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}
+              to={`/${resolvedPath}${item.path}`}
+              className={`nav-link ${location.pathname === `/${resolvedPath}${item.path}` ? 'active' : ''}`}
             >
               {item.label}
             </Link>

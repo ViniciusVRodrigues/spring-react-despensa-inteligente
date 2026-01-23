@@ -26,11 +26,11 @@ export default defineConfig({
     cssCodeSplit: false,
   },
   server: {
-    port: 3001,
+    port: Number(process.env.VITE_PORT) || 3002,
     cors: true,
   },
   preview: {
-    port: 3001,
+    port: Number(process.env.VITE_PORT) || 3002,
     cors: true,
   },
 })
