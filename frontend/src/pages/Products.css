@@ -1,0 +1,30 @@
+.products {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.products-error {
+  text-align: center;
+  padding: 40px;
+}
+
+.products-error p {
+  color: #dc2626;
+  margin-bottom: 16px;
+}

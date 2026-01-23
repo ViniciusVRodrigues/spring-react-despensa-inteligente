@@ -1,0 +1,78 @@
+.pantry {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.pantry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.pantry-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.pantry-error {
+  text-align: center;
+  padding: 40px;
+}
+
+.pantry-error p {
+  color: #dc2626;
+  margin-bottom: 16px;
+}
+
+.consume-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.consume-info {
+  color: #6b7280;
+  margin: 0;
+}
+
+.consume-input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.consume-input label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.consume-input input {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.consume-input input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.consume-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
