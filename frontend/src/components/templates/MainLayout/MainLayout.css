@@ -1,0 +1,19 @@
+.main-layout {
+  min-height: 100vh;
+  background-color: #f8fafc;
+}
+
+.main-content {
+  padding: 24px;
+}
+
+.content-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 16px;
+  }
+}
