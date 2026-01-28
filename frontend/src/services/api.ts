@@ -12,6 +12,15 @@ import type {
   ConsumeRequest,
   ConsumptionResponse,
 } from '../types';
+import {
+  mockProductApi,
+  mockPantryApi,
+  mockShoppingListApi,
+  mockDashboardApi,
+} from './mockApi';
+
+// Check if we should use mock data (for GitHub Pages or development)
+const USE_MOCK_DATA = import.meta.env.VITE_USE_MOCK_DATA === 'true';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8081/api';
 
@@ -23,7 +32,7 @@ const api = axios.create({
 });
 
 // Product API
-export const productApi = {
+export const productApi = USE_MOCK_DATA ? mockProductApi : {
   getAll: () => api.get<Product[]>('/products'),
   getById: (id: number) => api.get<Product>(`/products/${id}`),
   getByCategory: (category: string) => api.get<Product[]>(`/products/category/${category}`),
@@ -34,7 +43,7 @@ export const productApi = {
 };
 
 // Pantry API
-export const pantryApi = {
+export const pantryApi = USE_MOCK_DATA ? mockPantryApi : {
   getAll: () => api.get<PantryItem[]>('/pantry'),
   getById: (id: number) => api.get<PantryItem>(`/pantry/${id}`),
   getByProduct: (productId: number) => api.get<PantryItem[]>(`/pantry/product/${productId}`),
@@ -49,7 +58,7 @@ export const pantryApi = {
 };
 
 // Shopping List API
-export const shoppingListApi = {
+export const shoppingListApi = USE_MOCK_DATA ? mockShoppingListApi : {
   getAll: () => api.get<ShoppingListItem[]>('/shopping-list'),
   getPending: () => api.get<ShoppingListItem[]>('/shopping-list/pending'),
   getById: (id: number) => api.get<ShoppingListItem>(`/shopping-list/${id}`),
@@ -64,7 +73,7 @@ export const shoppingListApi = {
 };
 
 // Dashboard API
-export const dashboardApi = {
+export const dashboardApi = USE_MOCK_DATA ? mockDashboardApi : {
   getAlerts: () => api.get<DashboardAlerts>('/dashboard/alerts'),
   addAllAlertsToShoppingList: () => api.post('/dashboard/alerts/add-to-shopping-list'),
   addSelectedAlertsToShoppingList: (pantryItemIds: number[]) =>

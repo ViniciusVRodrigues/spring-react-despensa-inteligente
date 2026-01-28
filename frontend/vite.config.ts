@@ -4,6 +4,7 @@ import federation from '@originjs/vite-plugin-federation'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: process.env.VITE_BASE_PATH || '/',
   plugins: [
     react(),
     federation({
@@ -15,6 +16,7 @@ export default defineConfig({
         './Products': './src/pages/Products.tsx',
         './Pantry': './src/pages/Pantry.tsx',
         './ShoppingList': './src/pages/ShoppingList.tsx',
+        './routes': './src/routes.ts',
       },
       shared: ['react', 'react-dom', 'react-router-dom'],
     }),
