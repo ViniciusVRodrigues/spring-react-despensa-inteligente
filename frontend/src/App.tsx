@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router,Routes, Route } from 'react-router-dom';
 import { MainLayout } from './components/templates';
 import { Dashboard, Products, Pantry, ShoppingList } from './pages';
 import { routes } from './routes';
@@ -15,14 +15,16 @@ const componentMap: Record<string, React.ComponentType> = {
 function App() {
   return (
     <MainLayout>
-      <Routes>
-        {routes.map((route) => {
-          const Component = componentMap[route.component];
-          return Component ? (
-            <Route key={route.path} path={route.path} element={<Component />} />
-          ) : null;
-        })}
-      </Routes>
+      <Router>
+        <Routes>
+          {routes.map((route) => {
+            const Component = componentMap[route.component];
+            return Component ? (
+              <Route key={route.path} path={route.path} element={<Component />} />
+            ) : null;
+          })}
+        </Routes>
+      </Router>
     </MainLayout>
   );
 }
