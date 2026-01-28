@@ -1,4 +1,4 @@
-import { BrowserRouter as Router,Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { MainLayout } from './components/templates';
 import { Dashboard, Products, Pantry, ShoppingList } from './pages';
 import { routes } from './routes';
@@ -15,7 +15,6 @@ const componentMap: Record<string, React.ComponentType> = {
 function App() {
   return (
     <MainLayout>
-      <Router>
         <Routes>
           {routes.map((route) => {
             const Component = componentMap[route.component];
@@ -24,7 +23,6 @@ function App() {
             ) : null;
           })}
         </Routes>
-      </Router>
     </MainLayout>
   );
 }
