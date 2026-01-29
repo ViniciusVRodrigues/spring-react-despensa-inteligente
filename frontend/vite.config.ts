@@ -12,10 +12,11 @@ export default defineConfig({
       filename: 'remoteEntry.js',
       exposes: {
         './App': './src/App.tsx',
-        './Dashboard': './src/pages/Dashboard.tsx',
-        './Products': './src/pages/Products.tsx',
-        './Pantry': './src/pages/Pantry.tsx',
-        './ShoppingList': './src/pages/ShoppingList.tsx',
+        // Self-sufficient component exports (include all necessary CSS)
+        './Dashboard': './src/exports/DashboardExport.tsx',
+        './Products': './src/exports/ProductsExport.tsx',
+        './Pantry': './src/exports/PantryExport.tsx',
+        './ShoppingList': './src/exports/ShoppingListExport.tsx',
         './routes': './src/routes.ts',
       },
       shared: ['react', 'react-dom', 'react-router-dom'],
