@@ -7,7 +7,7 @@ export interface RouteConfig {
 
 export const routes: RouteConfig[] = [
   {
-    path: '/',
+    path: '/dashboard',
     label: 'Dashboard',
     icon: '📊',
     component: 'Dashboard',
